@@ -1,6 +1,6 @@
 [submodule "custom-courseware-ui"]
-	path = custom-courseware-ui
+	path = ui
 	url = git@github.com:JamesAyres16/custom-courseware-ui.git
 [submodule "custom-courseware-api"]
-	path = custom-courseware-api
+	path = api
 	url = git@github.com:JamesAyres16/custom-courseware-api.git
