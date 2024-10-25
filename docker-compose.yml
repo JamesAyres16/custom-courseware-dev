@@ -1,0 +1,9 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0.1
+    command: ["start-dev", "--import-realm"]
+    env_file: ".env"
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./import:/opt/keycloak/data/import
