@@ -10,3 +10,7 @@ services:
       - "8080:8080"
     volumes:
       - ./import:/opt/keycloak/data/import
+    develop:
+      watch:
+        - action: rebuild
+          path: import
