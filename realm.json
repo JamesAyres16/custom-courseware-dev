@@ -1,6 +1,6 @@
 {
   "id": "5f645c3c-67c3-43c3-991b-cc38c19e83cc",
-  "realm": "Custom Courseware",
+  "realm": "custom-courseware",
   "displayName": "Custom Courseware",
   "displayNameHtml": "<div class=\"kc-logo-text\"><span>Custom Courseware</span></div>",
   "notBefore": 0,
@@ -120,10 +120,10 @@
       "clientAuthenticatorType": "client-secret",
       "secret": "${UI_CLIENT_SECRET}",
       "redirectUris": [
-        "http://localhost:3000/api/auth/callback/keycloak"
+        "http://laptop:3000/api/auth/callback/keycloak"
       ],
       "webOrigins": [
-        "http://localhost:3000"
+        "http://laptop:3000"
       ],
       "notBefore": 0,
       "bearerOnly": false,
@@ -140,7 +140,7 @@
         "oidc.ciba.grant.enabled": "false",
         "client.secret.creation.time": "1730636534",
         "backchannel.logout.session.required": "true",
-        "post.logout.redirect.uris": "http://localhost:3000",
+        "post.logout.redirect.uris": "http://laptop:3000",
         "oauth2.device.authorization.grant.enabled": "false",
         "backchannel.logout.revoke.offline.tokens": "false"
       },

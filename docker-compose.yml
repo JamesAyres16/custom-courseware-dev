@@ -2,15 +2,23 @@ include:
   - api/docker-compose.yml
   - ui/docker-compose.yml
 services:
+  reverse-proxy:
+    image: traefik
+    command:
+      - --api.insecure=true
+      - --providers.docker
+      - --entrypoints.web.address=:8000
+    ports:
+      - "8080:8080"
+      - "8000:8000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
   keycloak:
     image: quay.io/keycloak/keycloak:26.0.1
     command: ["start-dev", "--import-realm"]
     env_file: ".env"
-    ports:
-      - "8080:8080"
     volumes:
-      - ./import:/opt/keycloak/data/import
-    develop:
-      watch:
-        - action: rebuild
-          path: import
+      - ./realm.json:/opt/keycloak/data/import/realm.json
+    labels:
+      - traefik.http.routers.keycloak.rule=Host(`keycloak.custom-courseware.test`)
